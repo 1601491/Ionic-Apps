@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Quiz</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <ion-grid>
+    <ion-row align-items-center>
+      <ion-col class="center" align-self-center>       
+        <h2 class="feedback">
+          {{(answerIsCorrect === true) ? "Correct!" : "Aww wrong answer!"}}
+        </h2>
+        <ion-img *ngIf="answerIsCorrect === false"
+          width="150" height="150" src="assets/imgs/sad.png">
+        </ion-img>
+        <ion-img *ngIf="answerIsCorrect === true"
+          width="150" height="150" src="assets/imgs/right.png">
+        </ion-img>
+        <h5 class="feedback" *ngIf="answerIsCorrect === false">
+          Correct answer is<br> "{{correctAnswer}}"
+        </h5>
+        <div class="center">
+          <button ion-button (click)="nextQuiz()">
+            {{(currentIndex+1 === totalQuizNum) ? "Show me how I did!" : "Next question!"}}
+          </button>
+        </div>
+      </ion-col>    
+    </ion-row>
+  </ion-grid>
+</ion-content>
